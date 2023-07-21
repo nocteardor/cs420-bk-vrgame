@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Whack-a-Robot/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e3aa92194f6e9fd48839489079041421,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6b8f7fe5e61144444bc5fb2b459ce889,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f01ba697966934941844b90d30f8f3df,
+      type: 2}
