@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
+/*
 public class VRMap
 {
     public Transform vrTarget;
@@ -45,3 +44,4 @@ public class VR_Rig : MonoBehaviour
         rightHand.Map();
     }
 }
+*/
