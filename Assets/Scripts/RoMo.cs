@@ -10,46 +10,56 @@ public class RoMo : MonoBehaviour
     // PUBLIC VARABLES
     public float visibleHeight = 0.2f;
     public float hiddenHeight = -0.3f;
-    public string difficulty;
-    public float hideSpeed;
+    public Vector3 hiddenPosition;
+    public Vector3 visiblePosition;
+    public float hideTimer = 0f;
 
     // PRIVATE VARIABLES
     bool isHit = false;
     bool vulnerable = false;
-    float hideTimer = 0f;
+    RoStates state;
     Vector3 targetPosition;
+    Animator anim;
+ 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        targetPosition = new Vector3(transform.localPosition.x, hiddenHeight, transform.localPosition.z);
+      //  targetPosition = new Vector3(transform.localPosition.x, hiddenHeight, transform.localPosition.z);
         transform.localPosition = targetPosition;
+        RiseMole();
     }
 
     // Update is called once per frame
     void Update()
     {
-        hideTimer -= Time.deltaTime;
-        if (hideTimer <= 0f && !isHit)
-        {
-            HideMole();
+
+        if (targetPosition == visiblePosition) {
+
+            hideTimer -= Time.deltaTime;
+            if (hideTimer <= 0f && !isHit)
+            {
+                HideMole();
+            }
         }
     }
 
     public void RiseMole()
-    {   
+    {
         // TODO: implement animations here
+        state = RoStates.VISIBLE;
         isHit = false;
-        targetPosition = new Vector3(transform.localPosition.x, visibleHeight, transform.localPosition.z);
+        targetPosition = visiblePosition;
         vulnerable = true;
-        hideTimer = hideSpeed;
     }
 
     void HideMole()
     {
         // TODO: implement animations here
+        state = RoStates.HIDING;
         isHit = false;
+        targetPosition = hiddenPosition;
         vulnerable = false;
     }
 
@@ -57,4 +67,14 @@ public class RoMo : MonoBehaviour
     {
         isHit = true;
     }
+
+
+    public enum RoStates
+    {
+        HIDING,
+        VISIBLE,
+    }
+
+
+
 }
