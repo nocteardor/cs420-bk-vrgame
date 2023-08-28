@@ -5,14 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public void PlayButton()
+    [SerializeField]
+    public float defaultHeight = 1.8f;
+
+    [SerializeField]
+    public Camera camera;
+
+    private void Resize()
     {
-        SceneManager.LoadScene(0);
+        float headHeight = camera.transform.localPosition.y;
+        float scale = defaultHeight / headHeight;
+        transform.localScale = Vector3.one * scale;
 
     }
-    public void QuitToDesktop()
+    private void OnEnable()
     {
-        Application.Quit(0);
+        Resize();
     }
-
 }
