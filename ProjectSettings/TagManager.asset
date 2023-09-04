@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - RoMOLE
   - UI
+  - Wall
+  - Prop
+  - Hammer
   layers:
   - Default
   - TransparentFX
