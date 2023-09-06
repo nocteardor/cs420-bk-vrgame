@@ -22,4 +22,9 @@ public class MainMenuController : MonoBehaviour
     {
         Resize();
     }
+
+    private void QuitToDesktop() { 
+        
+        Application.Quit();
+    }
 }
