@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - RoMOLE
   - UI
+  - Wall
+  - Prop
+  - Hammer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Head
   - Graffiti1
   - Graffiti2
-  - 
+  - Lighting
   - 
   - 
   - 
