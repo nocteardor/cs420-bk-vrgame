@@ -5,12 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Whack-a-Robot/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Mole Testing.unity
-    guid: f77538ab68e5e99468514a98ed2d4b6b
     path: Assets/Whack-a-Robot/Scenes/MainMenuScene.unity
     guid: 2183aef0eb469d941afed020ae38ac72
   - enabled: 1
