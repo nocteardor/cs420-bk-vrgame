@@ -158,8 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0c9bd39ce7c2a46bddcab45757b795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usingContinuousTurn: 0
+  usingSnapTurn: 0
   speed: 1
-  turnSpeed: 60
+  continuousTurnSpeed: 60
+  snapTurnAngle: 45
+  snapTurnRate: 0.5
+  snapTurnProvider: {fileID: 0}
   moveInputSource:
     m_UseReference: 1
     m_Action:
