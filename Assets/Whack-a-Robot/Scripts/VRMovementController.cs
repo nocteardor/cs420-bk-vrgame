@@ -2,27 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRMovementController : MonoBehaviour
 {
+    public bool usingContinuousTurn;
+    public bool usingSnapTurn;
+
     public float speed = 1;
-    public float turnSpeed = 60;
+    public float continuousTurnSpeed = 60;
+    public float snapTurnAngle = 45;
+    public float snapTurnRate = 0.5f;
+
+    public ActionBasedSnapTurnProvider snapTurnProvider;
+
     public InputActionProperty moveInputSource;
     public InputActionProperty turnInputSource;
+
     public Rigidbody rb;
+
     public LayerMask groundLayer;
+
     public Transform directionSource;
     public Transform turnSource;
+
     public CapsuleCollider bodyCollider;
+
     private Vector2 inputMoveAxis;
     private float inputTurnAxis;
 
+
+
+    private void Start()
+    {
+        snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
+        //establish the turning method and disable the other method accordingly
+        if (usingSnapTurn)
+        {
+            usingContinuousTurn = false;
+            snapTurnProvider.enabled = true;
+            snapTurnProvider.turnAmount = snapTurnAngle;
+            snapTurnProvider.debounceTime = snapTurnRate;
+        }
+        else if (usingContinuousTurn)
+            usingSnapTurn = false;
+
+
+    }
 
     void Update()
     {
         inputMoveAxis = moveInputSource.action.ReadValue<Vector2>();
         inputTurnAxis = turnInputSource.action.ReadValue<Vector2>().x;
     }
+
     private void FixedUpdate()
     {
         bool isGrounded = CheckIfGrounded();
@@ -35,15 +68,23 @@ public class VRMovementController : MonoBehaviour
             Vector3 targetMovePosition = rb.position + direction * Time.fixedDeltaTime * speed;
 
             Vector3 axis = Vector3.up;
-            float angle = turnSpeed * Time.fixedDeltaTime * inputTurnAxis;
 
-            Quaternion q = Quaternion.AngleAxis(angle, axis);
+            if (usingContinuousTurn)
+            {
+                float angle = continuousTurnSpeed * Time.fixedDeltaTime * inputTurnAxis;
 
-            rb.MoveRotation(rb.rotation * q);
+                Quaternion q = Quaternion.AngleAxis(angle, axis);
 
-            Vector3 newPosition = q * (targetMovePosition - turnSource.position) + turnSource.position;
+                rb.MoveRotation(rb.rotation * q);
 
-            rb.MovePosition(newPosition);
+                Vector3 newPosition = q * (targetMovePosition - turnSource.position) + turnSource.position;
+
+                rb.MovePosition(newPosition);
+            }
+            else if (!usingContinuousTurn && usingSnapTurn)
+            {
+
+            }
         }
     }
     public bool CheckIfGrounded()
