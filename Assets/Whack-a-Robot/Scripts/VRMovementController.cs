@@ -6,13 +6,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRMovementController : MonoBehaviour
 {
-    public bool usingContinuousTurn;
-    public bool usingSnapTurn;
+
 
     public float speed = 1;
     public float continuousTurnSpeed = 60;
-    public float snapTurnAngle = 45;
-    public float snapTurnRate = 0.5f;
 
     public ActionBasedSnapTurnProvider snapTurnProvider;
 
@@ -30,25 +27,6 @@ public class VRMovementController : MonoBehaviour
 
     private Vector2 inputMoveAxis;
     private float inputTurnAxis;
-
-
-
-    private void Start()
-    {
-        snapTurnProvider = GetComponent<ActionBasedSnapTurnProvider>();
-        //establish the turning method and disable the other method accordingly
-        if (usingSnapTurn)
-        {
-            usingContinuousTurn = false;
-            snapTurnProvider.enabled = true;
-            snapTurnProvider.turnAmount = snapTurnAngle;
-            snapTurnProvider.debounceTime = snapTurnRate;
-        }
-        else if (usingContinuousTurn)
-            usingSnapTurn = false;
-
-
-    }
 
     void Update()
     {
@@ -69,8 +47,6 @@ public class VRMovementController : MonoBehaviour
 
             Vector3 axis = Vector3.up;
 
-            if (usingContinuousTurn)
-            {
                 float angle = continuousTurnSpeed * Time.fixedDeltaTime * inputTurnAxis;
 
                 Quaternion q = Quaternion.AngleAxis(angle, axis);
@@ -80,11 +56,6 @@ public class VRMovementController : MonoBehaviour
                 Vector3 newPosition = q * (targetMovePosition - turnSource.position) + turnSource.position;
 
                 rb.MovePosition(newPosition);
-            }
-            else if (!usingContinuousTurn && usingSnapTurn)
-            {
-
-            }
         }
     }
     public bool CheckIfGrounded()
