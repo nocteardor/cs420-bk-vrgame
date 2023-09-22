@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(RomoLoop());
             StartCoroutine(GameTime());
-
         }
             
     }
@@ -46,6 +45,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(UnityEngine.Random.Range(minWait, maxWait));
         romo.RiseMole();
 
+    }
+
+    private void onMoleHit()
+    {
+        AddScore(score);
+     
     }
 
     public void AddScore(int points)

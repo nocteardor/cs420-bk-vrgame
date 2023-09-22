@@ -11,10 +11,10 @@ public class RoMo : MonoBehaviour
     // PUBLIC VARABLES
    // public Vector3 hiddenPosition = new(0, 0, 0);
     //public Vector3 visiblePosition = new(0, 3, 0);
-    public float visibleHeight = 0f;
-    public float hiddenHeight = -10.0f;
+    public float visibleHeight = 2f;
+    public float hiddenHeight = -5f;
     public float hideTimer = 300f;
-    public float speed = 0.1f;
+    public float speed = 3f;
 
     // PRIVATE VARIABLES
     bool isHit = false;
@@ -82,7 +82,6 @@ public class RoMo : MonoBehaviour
         {
             isHit = true;
         }
-        
         HideMole();
     }
 
