@@ -21,7 +21,6 @@ public class RoMo : MonoBehaviour
 
     // PRIVATE VARIABLES
 
-    bool vulnerable = false;
     Vector3 targetPosition;
     Animator anim;
 
@@ -44,9 +43,6 @@ public class RoMo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (targetPosition == visiblePosition)
-        //  {
-        // hideTimer -= Time.deltaTime
 
         if (this.state == RoStates.VISIBLE)
 
@@ -74,9 +70,17 @@ public class RoMo : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collision collision)
+
+    public enum RoStates
     {
-        if (collision.gameObject.tag == "HammerHead")
+        HIDING,
+        VISIBLE,
+    }
+
+
+    private void OnTriggerEnter(UnityEngine.Collider other)
+    {
+        if (other.gameObject.CompareTag("HammerHead"))
         {
 
 
@@ -98,37 +102,31 @@ public class RoMo : MonoBehaviour
 
     public void RiseMole()
     {
-        // TODO: implement animations here
+        // TODO: implement SFX here
      
         //
         this.state = RoStates.VISIBLE;
-        vulnerable = true;
     }
 
     public void HideMole()
     {
-        // TODO: implement animations here
+        // TODO: implement SFX here
         
         //
         this.state = RoStates.HIDING;
-        vulnerable = false;
 
     }
 
     void onHit()
     {
         Debug.Log("boop");
-        hitEffect.Play();
-        Object.Destroy(gameObject);
+        hitEffect.Play
+        Destroy(gameObject);
     }
 
 
-    public enum RoStates
-    {
-        HIDING,
-        VISIBLE,
-    }
 
+    // Coroutine for testing
     IEnumerator Peek()
     {
         Debug.Log("Started Coroutine at timestamp : " + Time.time);

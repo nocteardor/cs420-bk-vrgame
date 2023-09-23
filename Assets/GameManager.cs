@@ -14,12 +14,12 @@ public class GameManager : MonoBehaviour
 
     public RoMo[] romos;
 
-    public float minWait = 1.5f;
-    public float maxWait = 2.5f;
-    public float chanceToRise = 0.3f; // 30% chance to rise
-    public float chanceToHide = 0.3f; // 50% chance to hide
+    public float minWait = 0.5f;
+    public float maxWait = 1.5f;
+    public float chanceToRise = 1f; // 100% chance to rise
+    public float chanceToHide = 0.5f; // 50% chance to hide
 
-    public float gameTime; // 60 Seconds
+    public float gameTime;
         
     private int score = 0;
     private int pointsOnHit = 20;
@@ -54,15 +54,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Text scoreLabel = scoreObject.GetComponent<Text>();
-        scoreLabel.text = score.ToString();
+       // Text scoreLabel = scoreObject.GetComponent<Text>();
+       // scoreLabel.text = score.ToString();
+       
+
+        // LINQ for interating through the array of RoMos
 
         foreach (RoMo romo in romos)
         {
 
             if (romo.isHit)
             {
-                romo.DestroySafely();
                 onMoleHit();
 
             }
@@ -78,21 +80,21 @@ public class GameManager : MonoBehaviour
        
         if (mmc.difficulty == 0)
         {
-            // Easy - 6 Minutes
-
-            gameTime = 360f;
-        }
-        else if (mmc.difficulty == 1)
-        {   
-            // Medium - 4 Minutes
+            // Easy - 3 Minutes
 
             gameTime = 240f;
         }
-        else
-        {
-            // Hard - 2 Minutes
+        else if (mmc.difficulty == 1)
+        {   
+            // Medium - 2 Minutes
 
             gameTime = 120f;
+        }
+        else
+        {
+            // Hard - 1 Minute
+
+            gameTime = 60f;
         }
 
         while (gameTime > 0);
