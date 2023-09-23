@@ -20,21 +20,21 @@ public class GameManager : MonoBehaviour
     public float chanceToHide = 0.5f; // 50% chance to hide
 
     public float gameTime;
-        
-    private int score = 0;
-    private int pointsOnHit = 20;
-    
-    private bool started = false;
+    public bool started = false;
 
 
     public GameObject timerObject;
     public GameObject scoreObject;
 
 
+
+    private int score = 0;
+    private int pointsOnHit = 20;
+
+
     // Start is called before the first frame update
     void Start()
     {   
-        started = true;
 
         if (!started) return;
 
@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
         
 
     }
-
 
     // Update is called once per frame
     void Update()

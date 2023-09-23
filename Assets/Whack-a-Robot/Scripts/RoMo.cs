@@ -120,7 +120,7 @@ public class RoMo : MonoBehaviour
     void onHit()
     {
         Debug.Log("boop");
-        hitEffect.Play
+        hitEffect.Play();
         Destroy(gameObject);
     }
 
