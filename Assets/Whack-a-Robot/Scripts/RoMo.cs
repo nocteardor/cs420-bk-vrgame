@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
@@ -9,8 +10,7 @@ using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 public class RoMo : MonoBehaviour
 {
     // PUBLIC VARABLES
-    // public Vector3 hiddenPosition = new(0, 0, 0);
-    //public Vector3 visiblePosition = new(0, 3, 0);
+
     public float visibleHeight = 0f;
     public float hiddenHeight = -0.8f;
     public float hideTimer = 50f;
@@ -19,10 +19,16 @@ public class RoMo : MonoBehaviour
     public RoStates state;
     public ParticleSystem hitEffect;
 
+    public AudioClip hitSound;
+    public AudioClip[] hitSounds;
+
+
     // PRIVATE VARIABLES
 
     Vector3 targetPosition;
     Animator anim;
+    AudioSource audioSource;
+    
 
     private void Awake()
     {
@@ -33,6 +39,9 @@ public class RoMo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        audioSource = GetComponent<AudioSource>();
+
         //RiseMole();
         // StartCoroutine(Peek());
         //  targetPosition = new Vector3(transform.localPosition.x, hiddenHeight, transform.localPosition.z);
@@ -46,7 +55,7 @@ public class RoMo : MonoBehaviour
 
         if (this.state == RoStates.VISIBLE)
 
-        {
+        { 
             anim.SetBool("Roll_Anim", false);
             anim.SetBool("Open_Anim", true);
 
@@ -120,8 +129,16 @@ public class RoMo : MonoBehaviour
     void onHit()
     {
         Debug.Log("boop");
+
+        audioSource.mute = false;
+
+
+        AudioClip randomHitSound = hitSounds[UnityEngine.Random.Range(0, hitSounds.Length)];
+
+        audioSource.PlayOneShot(randomHitSound);
+
         hitEffect.Play();
-        Destroy(gameObject);
+        
     }
 
 
