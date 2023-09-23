@@ -2730,12 +2730,12 @@ PrefabInstance:
     - target: {fileID: 5136964197096819301, guid: e3bcf79e667fa714b9ef0d359850bc38,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -300.46
+      value: -387.38
       objectReference: {fileID: 0}
     - target: {fileID: 5136964197096819301, guid: e3bcf79e667fa714b9ef0d359850bc38,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -175.3
+      value: -160.42
       objectReference: {fileID: 0}
     - target: {fileID: 5136964197096819301, guid: e3bcf79e667fa714b9ef0d359850bc38,
         type: 3}
@@ -2751,6 +2751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486483464421643571, guid: e3bcf79e667fa714b9ef0d359850bc38,
+        type: 3}
+      propertyPath: m_Name
+      value: ScorePanel
       objectReference: {fileID: 0}
     - target: {fileID: 8132461302632339676, guid: e3bcf79e667fa714b9ef0d359850bc38,
         type: 3}
@@ -14715,12 +14720,12 @@ PrefabInstance:
     - target: {fileID: 8705452489737548000, guid: cf20c5d0d9b21324a96e1e491a938c86,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.67
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 8705452489737548000, guid: cf20c5d0d9b21324a96e1e491a938c86,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.231
+      value: -0.29
       objectReference: {fileID: 0}
     - target: {fileID: 8705452489737548000, guid: cf20c5d0d9b21324a96e1e491a938c86,
         type: 3}
