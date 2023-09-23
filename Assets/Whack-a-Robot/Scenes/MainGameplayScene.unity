@@ -4819,6 +4819,7 @@ MonoBehaviour:
   chanceToRise: 0.3
   chanceToHide: 0.3
   gameTime: 60
+  started: 0
   timerObject: {fileID: 0}
   scoreObject: {fileID: 0}
 --- !u!4 &649045729
@@ -7902,8 +7903,8 @@ MonoBehaviour:
   m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
-  m_SnapToColliderVolume: 0
-  m_ReinitializeDynamicAttachEverySingleGrab: 0
+  m_SnapToColliderVolume: 1
+  m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
@@ -15570,6 +15571,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.012
       objectReference: {fileID: 0}
+    - target: {fileID: 4107327196858340973, guid: cf20c5d0d9b21324a96e1e491a938c86,
+        type: 3}
+      propertyPath: head.trackingPositionOffset.z
+      value: -0.22
+      objectReference: {fileID: 0}
     - target: {fileID: 5402531318728134546, guid: cf20c5d0d9b21324a96e1e491a938c86,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15599,6 +15605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.074
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865032599629203871, guid: cf20c5d0d9b21324a96e1e491a938c86,
+        type: 3}
+      propertyPath: m_CameraYOffset
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7496473863444027296, guid: cf20c5d0d9b21324a96e1e491a938c86,
         type: 3}
