@@ -26,10 +26,6 @@ public class GameManager : MonoBehaviour
     public bool started = false;
 
 
-    public TextMeshPro timeLabel;
-    public TextMeshPro scoreLabel;
-
-
 
     private int score = 0;
     private int pointsOnHit = 20;
@@ -44,10 +40,10 @@ public class GameManager : MonoBehaviour
         else
         {
             StartCoroutine(RomoLoop());
-            StartCoroutine(GameTime());
+           // StartCoroutine(GameTime());
         }
 
-        scoreLabel.text = score.ToSafeString();
+        //scoreLabel.text = score.ToSafeString();
 
     }
 
@@ -70,6 +66,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*
     IEnumerator GameTime()
     {
 
@@ -96,15 +93,14 @@ public class GameManager : MonoBehaviour
          
         */
 
-        gameTime = 240f;
+        //gameTime = 240f;
 
-        while (gameTime > 0);
-        yield return new WaitForSeconds(1);
-        gameTime--;
-
+       // while (gameTime > 0);
+       // yield return new WaitForSeconds(1);
+//gameTime--;
 
        
-    }
+//
 
     IEnumerator RomoLoop()
     {
@@ -139,6 +135,6 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
-        //scoreLabel.text = score.ToSafeString();
+
     }
 }

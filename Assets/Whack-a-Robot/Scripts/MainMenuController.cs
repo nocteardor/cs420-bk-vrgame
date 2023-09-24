@@ -13,7 +13,7 @@ public class MainMenuController : MonoBehaviour
     }
 
     private void PlayButton()
-    {
+    { 
         Debug.Log("Main Gameplay Scene Loaded");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

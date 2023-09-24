@@ -42,11 +42,6 @@ public class RoMo : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        //RiseMole();
-        // StartCoroutine(Peek());
-        //  targetPosition = new Vector3(transform.localPosition.x, hiddenHeight, transform.localPosition.z);
-        // transform.localPosition = targetPosition;
-        //  RiseMole();
     }
 
     // Update is called once per frame
@@ -111,17 +106,13 @@ public class RoMo : MonoBehaviour
 
     public void RiseMole()
     {
-        // TODO: implement SFX here
      
-        //
+ 
         this.state = RoStates.VISIBLE;
     }
 
     public void HideMole()
     {
-        // TODO: implement SFX here
-        
-        //
         this.state = RoStates.HIDING;
 
     }
