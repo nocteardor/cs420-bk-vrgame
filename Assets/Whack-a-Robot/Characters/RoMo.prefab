@@ -706,8 +706,11 @@ MonoBehaviour:
   hitSounds:
   - {fileID: 8300000, guid: 7cdd03f8576f71849a2acb303bf404d7, type: 3}
   - {fileID: 8300000, guid: 1c825ebd401bc954dafdc60f61220d7b, type: 3}
+  - {fileID: 8300000, guid: 1c825ebd401bc954dafdc60f61220d7b, type: 3}
   - {fileID: 8300000, guid: 747d213703a31f74297708aa830b9ad9, type: 3}
-  - {fileID: 8300000, guid: 747d213703a31f74297708aa830b9ad9, type: 3}
+  - {fileID: 8300000, guid: c1385b93254079642a8f0bbd86bf3962, type: 3}
+  - {fileID: 8300000, guid: 290a629374ee7ec43b21e75cdcf4b89b, type: 3}
+  - {fileID: 8300000, guid: 9d815060bf0af1244b9249052ed27d46, type: 3}
 --- !u!135 &701571918646312668
 SphereCollider:
   m_ObjectHideFlags: 0

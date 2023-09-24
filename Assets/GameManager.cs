@@ -2,6 +2,7 @@ using Meta.WitAi;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -9,8 +10,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public MainMenuController mmc;
-    public Canvas mainCanvas;
+    //public MainMenuController mmc;
+
+
+   // public Canvas mainCanvas;
 
     public RoMo[] romos;
 
@@ -23,8 +26,8 @@ public class GameManager : MonoBehaviour
     public bool started = false;
 
 
-    public GameObject timerObject;
-    public GameObject scoreObject;
+    public TextMeshPro timeLabel;
+    public TextMeshPro scoreLabel;
 
 
 
@@ -44,18 +47,14 @@ public class GameManager : MonoBehaviour
             StartCoroutine(GameTime());
         }
 
-
-
-        
+        scoreLabel.text = score.ToSafeString();
 
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+
+    private void Update()
     {
-        TextMesh scoreLabel = scoreObject.GetComponent<TextMesh>();
-        scoreLabel.text = score.ToString();
-       
 
         // LINQ for interating through the array of RoMos
 
@@ -69,14 +68,11 @@ public class GameManager : MonoBehaviour
             }
 
         }
-
-
     }
 
     IEnumerator GameTime()
     {
-        
-        TextMesh time = timerObject.GetComponent<TextMesh>();
+
 
         /*
          if (mmc.difficulty == 0)
@@ -97,7 +93,8 @@ public class GameManager : MonoBehaviour
 
              gameTime = 60f;
          }
-         */
+         
+        */
 
         gameTime = 240f;
 
@@ -105,7 +102,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         gameTime--;
 
-        time.text = gameTime.ToString();
+
        
     }
 
@@ -136,13 +133,12 @@ public class GameManager : MonoBehaviour
     private void onMoleHit()
 
     {
-
         AddScore(pointsOnHit);
-
     }
 
     public void AddScore(int points)
     {
         score += points;
+        //scoreLabel.text = score.ToSafeString();
     }
 }
