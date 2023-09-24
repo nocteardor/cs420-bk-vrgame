@@ -51,10 +51,10 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-       // Text scoreLabel = scoreObject.GetComponent<Text>();
-       // scoreLabel.text = score.ToString();
+        TextMesh scoreLabel = scoreObject.GetComponent<TextMesh>();
+        scoreLabel.text = score.ToString();
        
 
         // LINQ for interating through the array of RoMos
@@ -75,26 +75,31 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameTime()
     {
-        Text time = timerObject.GetComponent<Text>();
-       
-        if (mmc.difficulty == 0)
-        {
-            // Easy - 3 Minutes
+        
+        TextMesh time = timerObject.GetComponent<TextMesh>();
 
-            gameTime = 240f;
-        }
-        else if (mmc.difficulty == 1)
-        {   
-            // Medium - 2 Minutes
+        /*
+         if (mmc.difficulty == 0)
+         {
+             // Easy - 3 Minutes
 
-            gameTime = 120f;
-        }
-        else
-        {
-            // Hard - 1 Minute
+             gameTime = 240f;
+         }
+         else if (mmc.difficulty == 1)
+         {   
+             // Medium - 2 Minutes
 
-            gameTime = 60f;
-        }
+             gameTime = 120f;
+         }
+         else
+         {
+             // Hard - 1 Minute
+
+             gameTime = 60f;
+         }
+         */
+
+        gameTime = 240f;
 
         while (gameTime > 0);
         yield return new WaitForSeconds(1);
